@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thế hệ 1987: Điều đáng sợ nhất không phải là bước sang tuổi 40</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2EAD8;
+    --paper-deep:#E9DFC6;
+    --ink:#262420;
+    --ink-soft:#544E43;
+    --forest:#2F3E33;
+    --gold:#B08A2E;
+    --brick:#8B4A3A;
+    --line:#C9BB9C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Be Vietnam Pro', sans-serif;
+    font-weight:400;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold);color:var(--paper);}
+
+  /* texture */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(38,36,32,0.05) 1px, transparent 0);
+    background-size:22px 22px;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{max-width:680px;margin:0 auto;padding:0 28px;position:relative;z-index:1;}
+
+  /* HERO */
+  header.hero{
+    padding:90px 0 60px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--brick);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:28px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px;height:1px;
+    background:var(--brick);
+    display:inline-block;
+  }
+  h1{
+    font-family:'Lora', serif;
+    font-weight:600;
+    font-size:clamp(32px, 6vw, 48px);
+    line-height:1.22;
+    letter-spacing:-0.01em;
+    color:var(--forest);
+    margin-bottom:22px;
+  }
+  h1 em{
+    font-style:italic;
+    color:var(--brick);
+  }
+  .dek{
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:52ch;
+  }
+  .meta-row{
+    margin-top:34px;
+    display:flex;
+    gap:24px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    letter-spacing:0.02em;
+  }
+
+  /* ARTICLE BODY */
+  article{padding:56px 0 20px;}
+  .lede{
+    font-size:21px;
+    font-family:'Lora', serif;
+    color:var(--forest);
+    margin-bottom:34px;
+  }
+  p{
+    font-size:17px;
+    color:var(--ink);
+    margin-bottom:18px;
+    max-width:60ch;
+  }
+  .tight p{margin-bottom:6px;}
+
+  h2{
+    font-family:'Lora', serif;
+    font-weight:600;
+    font-size:24px;
+    color:var(--forest);
+    margin:54px 0 22px;
+    padding-top:30px;
+    position:relative;
+  }
+  h2::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;
+    width:42px;height:3px;
+    background:var(--gold);
+  }
+
+  .rule{
+    border:0;
+    height:1px;
+    background:var(--line);
+    margin:46px 0;
+  }
+
+  /* SIGNATURE ELEMENT: the "invoice" block */
+  .invoice{
+    margin:36px 0 40px;
+    background:var(--paper-deep);
+    border:1px solid var(--line);
+    padding:30px 26px;
+    position:relative;
+  }
+  .invoice::before{
+    content:"HÓA ĐƠN";
+    position:absolute;
+    top:-11px;left:24px;
+    background:var(--forest);
+    color:var(--paper);
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    padding:4px 10px;
+  }
+  .invoice-title{
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-size:18px;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+    margin-top:6px;
+  }
+  .invoice-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:13.5px;
+    color:var(--ink);
+    padding:9px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .invoice-row span:first-child{color:var(--ink-soft);}
+  .invoice-row span:last-child{
+    color:var(--brick);
+    font-weight:500;
+    white-space:nowrap;
+  }
+  .invoice-total{
+    display:flex;justify-content:space-between;
+    margin-top:16px;padding-top:16px;
+    border-top:2px solid var(--forest);
+    font-family:'JetBrains Mono', monospace;
+    font-size:14px;
+    color:var(--forest);
+    font-weight:600;
+  }
+
+  /* checklist signal block */
+  .checklist{list-style:none;margin:26px 0 36px;}
+  .checklist li{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    padding:11px 0;
+    border-bottom:1px solid var(--line);
+    font-size:16.5px;
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist li::before{
+    content:"";
+    flex-shrink:0;
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--gold);
+    margin-top:9px;
+  }
+
+  /* prescription style block for the "what to do" section */
+  .rx{
+    margin:30px 0 40px;
+    border-left:3px solid var(--forest);
+    padding:6px 0 6px 26px;
+  }
+  .rx-item{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:16px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .rx-item:last-child{border-bottom:none;}
+  .rx-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+    color:var(--brick);
+    text-transform:uppercase;
+  }
+  .rx-value{font-size:16px;color:var(--ink);}
+
+  /* pull quote */
+  .pull{
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-size:25px;
+    line-height:1.5;
+    color:var(--forest);
+    text-align:center;
+    margin:58px auto;
+    max-width:46ch;
+    padding:0 10px;
+  }
+  .pull span{color:var(--brick);}
+
+  footer{
+    padding:50px 0 90px;
+    border-top:1px solid var(--line);
+    margin-top:40px;
+  }
+  .closer{
+    font-family:'Lora', serif;
+    font-size:19px;
+    line-height:1.8;
+    color:var(--forest);
+    max-width:58ch;
+  }
+  .signoff{
+    margin-top:30px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* reveal on scroll */
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.show{opacity:1;transform:translateY(0);}
+
+  @media (max-width:520px){
+    header.hero{padding:64px 0 44px;}
+    .rx-item{grid-template-columns:1fr;gap:4px;}
+    .invoice{padding:24px 18px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+    .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Ghi chú tuổi 1987 · sức khỏe</div>
+    <h1>Thế hệ 1987: Điều đáng sợ nhất không phải là <em>bước sang tuổi 40</em>,<br>mà là vẫn nghĩ mình còn rất nhiều thời gian</h1>
+    <p class="dek">Bạn tôi sinh năm 1987, năm nay tròn 39 tuổi. Ra đường vẫn được gọi là "anh", "chị". Nhưng cơ thể đã bắt đầu gửi những hóa đơn đầu tiên.</p>
+    <div class="meta-row">
+      <span>SINH NĂM 1987</span>
+      <span>TUỔI 39</span>
+      <span>6 PHÚT ĐỌC</span>
+    </div>
+    <div class="meta-row" style="margin-top:10px;color:var(--brick);">
+      <span>✍️ Bố của Dừa &amp; Mixue</span>
+    </div>
+  </header>
+
+  <article>
+
+    <p class="reveal" style="font-family:'Lora',serif;font-style:italic;font-size:18px;color:var(--ink-soft);">Đau lưng, mỏi gối, dạ dày mỏng dần, trĩ, rồi đến lúc phải từ chối dù chỉ một cốc bia, một chén rượu. Tôi đã thấy điều đó ở bạn tôi. Và cả ở chính tôi nữa.</p>
+
+    <p class="lede reveal">Tuổi hai mươi là lúc bạn tiêu sức khỏe để đổi lấy trải nghiệm. Tuổi ba mươi là lúc bạn tiêu sức khỏe để đổi lấy sự nghiệp. Còn tuổi bốn mươi bắt đầu là lúc sức khỏe đòi lại những gì bạn đã vay.</p>
+
+    <p class="reveal">Không ồn ào. Không báo trước. Chỉ bằng những tín hiệu rất nhỏ.</p>
+
+    <ul class="checklist reveal">
+      <li>Buổi sáng ngủ dậy vẫn thấy mệt</li>
+      <li>Leo ba tầng cầu thang phải nghỉ</li>
+      <li>Lưng đau sau vài giờ ngồi làm việc</li>
+      <li>Mắt mờ nhanh hơn trước</li>
+      <li>Bụng lớn hơn dù ăn không nhiều</li>
+      <li>Cái quần mới mua mùa đông năm ngoái, năm nay không còn mặc vừa</li>
+    </ul>
+
+    <p class="reveal">Một lần khám sức khỏe, bác sĩ nói huyết áp hơi cao, gan nhiễm mỡ nhẹ, cholesterol tăng. Bạn nhìn tờ kết quả rồi tự nhủ: "Chắc ai tuổi này cũng vậy."</p>
+
+    <p class="reveal">Không. Đó không phải là tuổi tác. Đó là <strong>hóa đơn của lối sống</strong>.</p>
+
+    <div class="invoice reveal">
+      <div class="invoice-title">Những gì 39 năm đã vay của cơ thể</div>
+      <div class="invoice-row"><span>Những đêm thức đến 1 giờ sáng</span><span>chưa trả</span></div>
+      <div class="invoice-row"><span>Những bữa ăn vội vàng, ăn muộn giờ</span><span>chưa trả</span></div>
+      <div class="invoice-row"><span>Những lần bỏ qua khám sức khỏe</span><span>chưa trả</span></div>
+      <div class="invoice-row"><span>Mười năm ngồi nhiều, vận động ít</span><span>chưa trả</span></div>
+      <div class="invoice-row"><span>Thể dục 30 phút mỗi ngày</span><span>chưa trả</span></div>
+      <div class="invoice-total"><span>Hạn thanh toán</span><span>không báo trước</span></div>
+    </div>
+
+    <hr class="rule">
+
+    <h2 class="reveal">Một thế hệ vừa nuôi con, vừa chăm cha mẹ già</h2>
+    <p class="reveal">Thế hệ 1987 lớn lên trong thời còn thiếu — tuổi thơ cơm độn sắn, ăn với cá khô, dưới mỡ, khoai cám lợn cũng thấy ngon. Rồi trưởng thành đúng lúc đất nước phát triển nhanh: internet xuất hiện, điện thoại thông minh xuất hiện, công việc nhiều hơn, tiền kiếm được nhiều hơn.</p>
+    <p class="reveal">Nhưng thời gian dành cho bản thân thì ít đi. Đây là thế hệ phải trả góp nhà, trả góp xe, trả góp tương lai. Ngày nào cũng bận — nhưng rất ít người bận chăm sóc chính mình.</p>
+
+    <h2 class="reveal">Điều đáng sợ nhất là bệnh không đau</h2>
+    <p class="reveal">Đột quỵ không xảy ra trong một ngày. Nhồi máu cơ tim không xuất hiện sau một bữa nhậu. Tiểu đường không đến chỉ vì một lon nước ngọt. Tất cả đều được tích lũy trong nhiều năm.</p>
+    <p class="reveal">Điều nguy hiểm là phần lớn thời gian, cơ thể không hề đau. Nó vẫn cho bạn đi làm, vẫn cho bạn tăng ca, vẫn cho bạn thức đến một giờ sáng — cho đến khi một ngày, nó nói: <em>"Đủ rồi."</em></p>
+    <p class="reveal">Khi ấy, cái giá phải trả không còn là một viên thuốc. Có thể là một phần cuộc đời.</p>
+
+    <p class="pull reveal">Người có thể ngủ ngon <span>tám tiếng</span> mỗi đêm mới thật sự giàu.</p>
+
+    <h2 class="reveal">Sau tuổi 40, thứ quý nhất không còn là tiền</h2>
+    <p class="reveal">Ngày hai mươi tuổi, bạn nghĩ kiếm được một tỷ đồng là thành công. Đến bốn mươi tuổi, bạn nhận ra: người không phải uống thuốc huyết áp mỗi sáng là người giàu. Người còn đủ sức chạy theo con ngoài công viên là người giàu. Người còn đủ trí nhớ để học điều mới là người giàu. Người không phải mổ L4 L5, không phải ra vào Bạch Mai, Việt Đức... cũng là người giàu.</p>
+    <p class="reveal">Người còn dành được thời gian cho bạn học cấp 2, cấp 3 mỗi dịp họp lớp cũng là người giàu.</p>
+    <p class="reveal">Tiền có thể kiếm lại. Sức khỏe thì rất khó.</p>
+
+    <h2 class="reveal">Cơ thể không cần những điều phi thường</h2>
+    <p class="reveal">Nó chỉ cần bạn bớt làm tổn thương nó. Không phải bằng kỳ tích trong một tuần — mà bằng những điều rất nhỏ, lặp lại mỗi ngày:</p>
+
+    <div class="rx reveal">
+      <div class="rx-item"><span class="rx-label">Giấc ngủ</span><span class="rx-value">Đi ngủ sớm hơn một giờ</span></div>
+      <div class="rx-item"><span class="rx-label">Vận động</span><span class="rx-value">Đi bộ thêm ba mươi phút mỗi ngày</span></div>
+      <div class="rx-item"><span class="rx-label">Ăn uống</span><span class="rx-value">Ăn chậm hơn, bớt một lon nước ngọt</span></div>
+      <div class="rx-item"><span class="rx-label">Tiệc tùng</span><span class="rx-value">Bớt một cuộc nhậu mỗi tháng</span></div>
+      <div class="rx-item"><span class="rx-label">Kiểm tra</span><span class="rx-value">Khám sức khỏe mỗi năm, đo huyết áp thường xuyên</span></div>
+      <div class="rx-item"><span class="rx-label">Cân nặng</span><span class="rx-value">Giảm vài cân, đều đặn</span></div>
+    </div>
+
+    <p class="reveal">Những việc ấy không tạo nên kỳ tích trong một tuần. Nhưng chúng có thể tạo nên mười năm khỏe mạnh phía trước.</p>
+
+    <hr class="rule">
+
+    <h2 class="reveal">Đừng chăm sóc sức khỏe vì sợ chết</h2>
+    <p class="reveal">Hãy chăm sóc sức khỏe vì còn quá nhiều người cần bạn. Con cần một người cha còn đủ sức đá bóng. Vợ cần một người chồng còn đủ khỏe để cùng đi hết cuộc đời. Cha mẹ già không mong bạn giàu nhất — họ chỉ mong bạn khỏe mạnh.</p>
+    <p class="reveal">Và chính bạn của mười năm sau cũng sẽ biết ơn những quyết định rất nhỏ bạn thực hiện từ hôm nay.</p>
+
+  </article>
+
+  <footer>
+    <p class="closer reveal">Cơ thể không phản bội chúng ta. Nó chỉ phản ánh cách chúng ta đã đối xử với nó suốt nhiều năm. Nếu hôm nay bạn dành thêm ba mươi phút đi bộ, một bữa ăn lành mạnh hơn, một giấc ngủ sớm hơn — mười năm sau, nó sẽ trả lại bạn bằng những buổi sáng còn đủ năng lượng để sống trọn những năm tháng đẹp nhất phía trước.</p>
+
+    <p class="pull reveal" style="margin:44px auto 8px;">"The body is your temple.<br>Keep it pure and clean for the soul to reside in."</p>
+    <p class="reveal" style="text-align:center;font-size:14px;color:var(--ink-soft);max-width:none;">— Tạm dịch: <em>Cơ thể là ngôi đền của bạn. Hãy giữ nó tinh khiết và sạch sẽ để linh hồn trú ngụ.</em></p>
+
+    <div class="signoff reveal">Tuổi 39 — và một cơ thể vẫn còn kịp</div>
+    <div class="signoff reveal" style="margin-top:14px;color:var(--brick);">© Bố của Dừa &amp; Mixue</div>
+  </footer>
+
+</div>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('show');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
