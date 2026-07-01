@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>90% Người Đi Bộ Đang Làm Sai — Hướng Dẫn Đầy Đủ</title>
+<title>Hầu Hết Chúng Ta Đi Bộ Sai Cách Mà Không Biết — Hướng Dẫn Đầy Đủ</title>
 <meta name="description" content="7.000 bước/ngày, 3 thời điểm vàng, kỹ thuật Japanese Walking và 7 sai lầm khi đi bộ ai cũng mắc — tổng hợp từ Harvard Health, Mayo Clinic, WHO và các nghiên cứu y khoa uy tín.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="90% Người Đi Bộ Đang Làm Sai — Hướng Dẫn Đầy Đủ">
+<meta property="og:title" content="Hầu Hết Chúng Ta Đi Bộ Sai Cách Mà Không Biết — Hướng Dẫn Đầy Đủ">
 <meta property="og:description" content="7.000 bước/ngày, 3 thời điểm vàng, kỹ thuật Japanese Walking và 7 sai lầm khi đi bộ ai cũng mắc — tổng hợp từ Harvard Health, Mayo Clinic, WHO.">
 <meta property="og:image" content="REPLACE_WITH_HOSTED_IMAGE_URL/og-image-di-bo.png">
 <meta property="og:image:width" content="1200">
@@ -577,6 +577,51 @@ section { max-width: 880px; margin: 0 auto; padding: 80px 24px; }
 .tip-title { font-weight: 600; color: var(--white); font-size: .92rem; margin-bottom: 4px; }
 .tip-desc { font-size: .835rem; color: var(--muted); line-height: 1.6; }
 
+.tip-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--green);
+  text-decoration: none;
+  font-size: .8rem;
+  font-weight: 600;
+  border-bottom: 1px dashed transparent;
+  transition: border-color .2s;
+}
+.tip-link:hover { border-color: var(--green); }
+
+/* ── THIỀN HÀNH ── */
+.med-wrap {
+  background: var(--night-card);
+  border: 1px solid var(--night-border);
+  border-radius: 20px;
+  padding: 52px 40px;
+  margin-top: 32px;
+  text-align: center;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.med-wrap.visible { opacity: 1; transform: translateY(0); }
+
+.med-poem {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--muted);
+  max-width: 460px;
+  margin: 0 auto 22px;
+}
+.med-poem:first-child { color: var(--cream); font-size: 1.2rem; }
+.med-poem:last-of-type { margin-bottom: 0; }
+.med-question { color: var(--green); font-style: normal; }
+
+.med-signoff {
+  margin-top: 32px;
+  font-size: .78rem;
+  letter-spacing: .06em;
+  color: var(--green);
+}
+
 /* ── CTA ── */
 .cta-block {
   max-width: 880px;
@@ -709,7 +754,7 @@ footer strong { color: var(--muted); }
 <div class="hero">
   <p class="hero-eyebrow">Sức khoẻ · Vận động · Đi bộ đúng cách</p>
   <h1 class="hero-hook">
-    90% người<br>đi bộ đang<br><em>làm sai</em><br>mà không biết
+    Hầu hết<br>chúng ta<br>đi bộ <em>sai cách</em><br>mà không biết
   </h1>
   <p class="hero-sub">Sai kỹ thuật còn hại hơn không đi. Đây là những gì khoa học thực sự nói.</p>
 
@@ -1083,7 +1128,7 @@ footer strong { color: var(--muted); }
       <div class="tip-num">3</div>
       <div>
         <div class="tip-title">Tạo "giờ không màn hình" sau 8h tối</div>
-        <p class="tip-desc">Thay vì lướt điện thoại, đi bộ 20–25 phút không tai nghe, không điện thoại. Não được nghỉ ngơi thật sự — ngủ sâu hơn, ít thức giữa đêm hơn. Ở Hà Nội, vòng quanh Hồ Tây hay công viên Yên Sở buổi tối vừa có đèn, vừa đông người đi bộ — an toàn hơn đường vắng.</p>
+        <p class="tip-desc">Thay vì lướt điện thoại, đi bộ 20–25 phút không tai nghe, không điện thoại. Não được nghỉ ngơi thật sự — ngủ sâu hơn, ít thức giữa đêm hơn. Đông Anh mình đang phát triển: công viên, vườn hoa, phố đi bộ, nhà văn hoá đang được xây dựng nhiều hơn. Đó cũng là lợi thế để bắt đầu.</p>
       </div>
     </div>
     <div class="tip">
@@ -1097,9 +1142,28 @@ footer strong { color: var(--muted); }
       <div class="tip-num">5</div>
       <div>
         <div class="tip-title">Đi bộ "mindful" — không nghĩ đến công việc</div>
-        <p class="tip-desc">Chọn một lộ trình cố định. Chú ý 5 thứ mắt thấy, 3 thứ tai nghe, 1 thứ cảm nhận trên da. Rèn sự hiện diện và giải phóng não trước khi ngủ.</p>
+        <p class="tip-desc">Chọn một lộ trình cố định. Chú ý 5 thứ mắt thấy, 3 thứ tai nghe, 1 thứ cảm nhận trên da. Rèn sự hiện diện và giải phóng não trước khi ngủ. <a href="#meditation" class="tip-link">→ Một ý tưởng còn bỏ ngỏ ở cuối bài</a></p>
       </div>
     </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ══════════════════════════════════════════
+     THIỀN HÀNH — Đỉnh cao của đi bộ
+══════════════════════════════════════════ -->
+<section id="meditation">
+  <p class="section-label">Một câu hỏi bỏ ngỏ</p>
+  <h2 class="section-title">Có một điều mà đi bộ nói riêng<br>và mọi việc trong đời sống của con người nói chung:</h2>
+
+  <div class="med-wrap">
+    <p class="med-poem">Có người nói, đỉnh cao của đi bộ không phải là đi nhanh hay kỹ thuật.</p>
+    <p class="med-poem">Mà là đến một lúc... bước chân không còn dùng để đi tới đâu cả.</p>
+    <p class="med-poem">Mọi kỹ thuật rồi cũng sẽ kết thúc. Chỉ còn lại người đang bước.</p>
+    <p class="med-poem">Có người nói, mỗi bước chân đều giống như vừa trở về — về nhà, về trái tim, về đan điền.</p>
+    <p class="med-poem med-question">Đó có phải là thiền hành không?</p>
+    <p class="med-signoff">Bạn và tôi cùng khám phá nhé!</p>
   </div>
 </section>
 
@@ -1116,7 +1180,7 @@ footer strong { color: var(--muted); }
         <div class="cta-check">✓</div>
         <div class="cta-text">
           Đi bộ 20 phút sau 8h tối
-          <small>Không tai nghe, không điện thoại · Hồ Tây hoặc Yên Sở là lựa chọn tốt</small>
+          <small>Không tai nghe, không điện thoại · công viên hoặc phố đi bộ gần nhà là lựa chọn tốt</small>
         </div>
       </div>
       <div class="cta-item">
@@ -1158,17 +1222,7 @@ footer strong { color: var(--muted); }
      FOOTER
 ══════════════════════════════════════════ -->
 <footer>
-  <p>
-    <strong>Tham khảo thông tin từ:</strong><br>
-    Harvard Health Publishing &nbsp;·&nbsp;
-    Mayo Clinic Walking Guide &nbsp;·&nbsp;
-    Stanford Lifestyle Medicine<br>
-    Diabetes Care — American Diabetes Association &nbsp;·&nbsp;
-    Sleep Medicine Reviews · Đại học Shinshu, Nhật Bản &nbsp;·&nbsp;
-    WHO — Physical Activity Guidelines 2020
-  </p>
-  <p style="margin-top:12px;font-size:.72rem;">
-    Nội dung mang tính tham khảo — không thay thế tư vấn y tế chuyên khoa.<br>
+  <p style="font-size:.72rem;">
     Tổng hợp &amp; biên soạn bởi <strong>Bố của Dừa &amp; Mixue</strong> · Mùa hè 2026
   </p>
 </footer>
@@ -1272,7 +1326,7 @@ footer strong { color: var(--muted); }
   }, { threshold: 0.08 });
 
   document.querySelectorAll(
-    '.mistake-card, .posture-item, .posture-svg-wrap, .tl-item, .tip, .method-wrap, .cta-inner'
+    '.mistake-card, .posture-item, .posture-svg-wrap, .tl-item, .tip, .method-wrap, .med-wrap, .cta-inner'
   ).forEach(el => observer.observe(el));
 </script>
 </body>
