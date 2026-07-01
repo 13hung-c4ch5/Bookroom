@@ -221,6 +221,25 @@
     box-shadow:0 0 0 1px var(--line-hv), 0 16px 36px rgba(0,0,0,.45), 0 0 30px rgba(232,165,72,.08);
     border-left-color:var(--flame);
   }
+  .leaf-body{ display:flex; gap:20px; align-items:flex-start; }
+  .leaf-thumb{
+    flex-shrink:0;
+    width:56px;height:56px;
+    border-radius:50%;
+    background:radial-gradient(circle at 38% 32%, rgba(232,165,72,.22) 0%, rgba(138,74,42,.14) 60%, transparent 100%);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--flame-soft);
+    transition:border-color .3s ease, box-shadow .3s ease, color .3s ease;
+  }
+  .leaf-thumb svg{ width:26px;height:26px; }
+  .leaf:hover .leaf-thumb{
+    border-color:var(--line-hv);
+    box-shadow:0 0 16px rgba(232,165,72,.2);
+    color:var(--flame);
+  }
+  .leaf-content{ flex:1; min-width:0; }
+
   .leaf-top{
     display:flex;justify-content:space-between;align-items:baseline;
     gap:16px;margin-bottom:12px;flex-wrap:wrap;
@@ -325,6 +344,8 @@
   @media (max-width:520px){
     .hero{padding:60px 0 48px;}
     .leaf{padding:22px 20px;}
+    .leaf-thumb{width:44px;height:44px;}
+    .leaf-thumb svg{width:20px;height:20px;}
   }
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important;animation:none !important;}
@@ -417,6 +438,12 @@ const QUOTES = [
 })();
 
 /* ══ DỮ LIỆU BÀI VIẾT ══ */
+const ICONS = {
+  hourglass: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10M7 21h10M7 3c0 4.5 3 6 5 6s5-1.5 5-6M7 21c0-4.5 3-6 5-6s5 1.5 5 6"/></svg>`,
+  footprints: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="8" cy="8" rx="2.1" ry="3" transform="rotate(-18 8 8)"/><ellipse cx="16" cy="16" rx="2.1" ry="3" transform="rotate(18 16 16)"/><circle cx="9.6" cy="3.6" r=".9" fill="currentColor" stroke="none"/><circle cx="17.6" cy="11.6" r=".9" fill="currentColor" stroke="none"/></svg>`,
+  book: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c3 0 6 1 8 3 2-2 5-3 8-3v13c-3 0-6 1-8 3-2-2-5-3-8-3z"/><path d="M12 8v13"/></svg>`
+};
+
 const ARTICLES = [
   {
     title: "1987 — Chúng ta không già đi, chúng ta đang bước vào giai đoạn quan trọng nhất",
@@ -425,7 +452,18 @@ const ARTICLES = [
     mood: "phù hợp khi bạn cần chậm lại",
     minutes: 7,
     date: "2026",
-    tags: ["sức khỏe", "tuổi tác"]
+    tags: ["sức khỏe", "tuổi tác"],
+    icon: ICONS.hourglass
+  },
+  {
+    title: "90% Người Đi Bộ Đang Làm Sai — Hướng Dẫn Đầy Đủ",
+    file: "huong-dan-di-bo.html",
+    quote: "Bước ngắn và nhanh hơn bước dài và chậm — giảm lực chấn động lên khớp gối.",
+    mood: "phù hợp khi bạn muốn bắt đầu một thói quen tốt",
+    minutes: 6,
+    date: "2026",
+    tags: ["sức khỏe", "vận động"],
+    icon: ICONS.footprints
   }
 ];
 
@@ -466,16 +504,21 @@ function renderShelf(){
     leaf.style.transitionDelay = (i*60)+'ms';
     leaf.innerHTML = `
       ${isFeatured ? '<div class="featured-badge">📖 Đang đọc</div>' : ''}
-      <div class="leaf-top">
-        <div class="leaf-title">${a.title}</div>
-        <div class="leaf-meta">${a.minutes} phút đọc · ${a.date}</div>
-      </div>
-      <div class="leaf-quote">"${a.quote}"</div>
-      <div class="leaf-footer">
-        <span class="leaf-mood">${a.mood}</span>
-        <span class="leaf-cta">Mở trang
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </span>
+      <div class="leaf-body">
+        <div class="leaf-thumb">${a.icon || ICONS.book}</div>
+        <div class="leaf-content">
+          <div class="leaf-top">
+            <div class="leaf-title">${a.title}</div>
+            <div class="leaf-meta">${a.minutes} phút đọc · ${a.date}</div>
+          </div>
+          <div class="leaf-quote">"${a.quote}"</div>
+          <div class="leaf-footer">
+            <span class="leaf-mood">${a.mood}</span>
+            <span class="leaf-cta">Mở trang
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </div>
       </div>`;
     leaf.addEventListener('click', (e)=>{
       e.preventDefault();
